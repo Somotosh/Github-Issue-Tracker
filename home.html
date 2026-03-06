@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Github-Issue-Tracker | Home</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- tailwing & daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>hello</h2>
+
+    <header>
+        <div class="navbar bg-base-100 shadow-sm px-1 sm:px-10">
+            <div class="flex-1 ">
+                <div class="flex justify-start">
+                    <a href="" class="flex items-center gap-1">
+                        <img class="w-10" alt="Tailwind CSS Navbar component" src="./assets/github-logo.png" />
+                        <p>GitHub Issues Tracker</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex gap-1">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <div class="dropdown dropdown-end">
+                    <button class="btn btn-primary "><i class="fa-solid fa-plus"></i>New Issue</button>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
 </body>
+
 </html>
