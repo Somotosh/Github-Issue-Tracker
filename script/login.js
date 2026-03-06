@@ -7,5 +7,11 @@ loginBtn.addEventListener("click",()=>{
     const inputPassword =document.getElementById("input-password");
     const password =inputPassword.value
     console.log(password)
-    if(username =="")
+    if(username =="admin" && password =="admin123"){
+        alert("login Success");
+        window.location.assign("./home.html")
+    }else{
+         alert("login Failed");
+        return;
+    }
 })
