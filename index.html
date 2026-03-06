@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github-Issue-Tracker | login</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- tailwing & daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
-    <h1>hello</h1>
+
+<body class="">
+    <section class=" max-w-md bg-white shadow mx-auto mt-8 mb-8">
+        <div class="logo w-[260px] mx-auto pt-5">
+            <img class="mx-auto" src="./assets/github-logo.png" alt="">
+        </div>
+        <div class="text-center mt-4">
+            <h1 class="font-bold text-2xl">GitHub Issues Tracker</h1>
+            <p class="opacity-45">Sign in to manage your issues</p>
+        </div>
+        <div class="form ">
+            <div class="card  w-full max-w-sm mx-auto ">
+                <div class="card-body">
+                    <fieldset class="fieldset">
+                        <label class="label text-neutral text-lg font-bold">Username</label>
+                        <input id="input-username" type="text" class="input rounded-sm bg-base-200"
+                            placeholder="Enter Username" />
+                        <br>
+                        <label class="label text-neutral text-lg font-bold">Password</label>
+                        <input id="input-password" type="password" class="input rounded-sm bg-base-200"
+                            placeholder="Enter Password" />
+
+                        <button id="login-btn" class="btn btn-primary rounded-sm mt-2">Sing In</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center my-4">
+            <div class="flex-grow h-px bg-black"></div>
+            <span class="px-3  text-sm">OR</span>
+            <div class="flex-grow h-px bg-black"></div>
+        </div>
+        <div class="p-4">
+            <p class="text-center">Demo Credentials:</p>
+            <div class="text-center bg-slate-300 mt-4 p-6">
+                <p>Username: admin</p>
+                <p>Password: admin123</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="./script/login.js"></script>
+
 </body>
+
 </html>
