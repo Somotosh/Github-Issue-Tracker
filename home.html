@@ -40,7 +40,8 @@
                 </div>
             </div>
             <div class="flex gap-1">
-                <input id="input-search" type="text" placeholder=" Search" class="input input-bordered w-24 md:w-auto" />
+                <input id="input-search" type="text" placeholder=" Search"
+                    class="input input-bordered w-24 md:w-auto" />
                 <div class="dropdown dropdown-end">
                     <button id="btn-search" class="btn btn-primary ">Search</button>
 
@@ -72,10 +73,11 @@
                     </div>
                     <div>
                         <h1 class="text-lg font-bold">
-                            <span id="allIssues">0</span> 
+                            <span id="allIssues">0</span>
                             <span id="openIssues" class="hidden">0</span>
                             <span id="closedIssues" class="hidden">0</span>
-                             Issues</h1>
+                            Issues
+                        </h1>
                         <p class="opacity-45">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -93,26 +95,47 @@
         </section>
 
         <!-- all-issues-section -->
-        <section id="all-issues-section" class="shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <section id="all-issues-section"
+            class="shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
         </section>
 
         <!-- open issues section -->
-         <section id="open-issues-section" class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <section id="open-issues-section"
+            class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
-         </section>
+        </section>
 
-         <!-- closed issues btn -->
-         <section id="closed-issues-section" class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <!-- closed issues btn -->
+        <section id="closed-issues-section"
+            class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
-         </section>
+        </section>
 
-         <section id="loadingSection" class="flex justify-center items-center shadow-sm gap-2 px-4 pt-6 pb-6 ">
+
+        <section id="loadingSection" class="flex justify-center items-center shadow-sm gap-2 px-4 pt-6 pb-6 ">
             <span class="loading loading-spinner loading-xl"></span>
-         </section>
+        </section>
+
+        
+        
+        <dialog id="modal-section" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                  <div id="modal-container" class="">
+                    
+
+                  </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
 
     </main>
-    
+
 
 
     <script src="./script/home.js"></script>
