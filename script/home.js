@@ -11,6 +11,7 @@ const allCountIssues = document.getElementById("allIssues");
 const openCountIssues = document.getElementById("openIssues");
 const closedCountIssues = document.getElementById("closedIssues")
 
+const loadingSection =document.getElementById("loadingSection")
 
 function toggoleStyle(id) {
     console.log(id)
@@ -73,9 +74,6 @@ function toggoleStyle(id) {
 }
 
 
-
-
-
 async function allIssues() {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const data = await res.json()
@@ -84,16 +82,20 @@ async function allIssues() {
 function displayAllIssues(issues) {
     allIssuesSection.innerHTML = "";
     openIssuesSection.innerHTML = "";
+    closedIssuesSection.innerHTML="";
+    loadingSection.classList.remove("hidden");
     issues.forEach((issue) => {
         const card = document.createElement("div")
         let priority = issue.priority ? issue.priority.trim() : '';
-        let priorityClass = priority === 'high' ? 'badge-error' : priority === 'medium' ? 'badge-info' : 'badge-primary';
         let borderClass = issue.status === 'open' ? 'border-green-500' : 'border-purple-500';
+        let priorityClass = priority === 'high' ? 'badge-error' : priority === 'medium' ? 'badge-info' : 'badge-primary';
+        let cardImg = issue.status === 'open' ? '<img src="./assets/Open-Status.png" alt="Open Status">' :
+            '<img src="./assets/Closed- Status .png" alt="">';
         card.innerHTML = `
              <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
                 <div class="flex justify-between mb-3">
                     <div>
-                        <img src="./assets/Open-Status.png" alt="">
+                        ${cardImg}
                     </div>
                     <div
                         class="badge badge-soft font-medium ${priorityClass}">
@@ -118,6 +120,7 @@ function displayAllIssues(issues) {
             </div>
         `;
         allIssuesSection.appendChild(card);
+        loadingSection.classList.add("hidden")
 
         if (issue.status === "open") {
             const openCard = card.cloneNode(true);
@@ -136,6 +139,19 @@ function displayAllIssues(issues) {
     const closedIssues = issues.filter(issue => issue.status === "closed");
     closedCountIssues.innerText = closedIssues.length;
 }
-
-
 allIssues()
+
+document.getElementById("btn-search").addEventListener('click', ()=>{
+    const input =document.getElementById("input-search");
+    const searchValue =input.value.trim().toLowerCase();
+
+
+  fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+  .then(res=> res.json())
+  .then(data=>{
+    const allCards = data.data;
+    const filtarCards =allCards.filter(word=>word.description.toLowerCase)
+    console.log(allCards)
+     displayAllIssues(filtarCards)
+  })
+})
