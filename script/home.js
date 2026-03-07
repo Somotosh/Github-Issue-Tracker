@@ -122,7 +122,10 @@ function displayAllIssues(issues) {
         if (issue.status === "open") {
             const openCard = card.cloneNode(true);
             openIssuesSection.appendChild(openCard);
-        } 
+        } else {
+            const openCard = card.cloneNode(true);
+            closedIssuesSection.appendChild(openCard);
+        }
 
 
     });
@@ -130,6 +133,8 @@ function displayAllIssues(issues) {
     const openIssues = issues.filter(issue => issue.status === "open");
     openCountIssues.innerText = openIssues.length;
 
+    const closedIssues = issues.filter(issue => issue.status === "closed");
+    closedCountIssues.innerText = closedIssues.length;
 }
 
 
