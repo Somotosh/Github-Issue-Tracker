@@ -82,8 +82,8 @@ async function allIssues() {
     displayAllIssues(data.data)
 }
 function displayAllIssues(issues) {
-    console.log(issues)
     allIssuesSection.innerHTML = "";
+    openIssuesSection.innerHTML = "";
     issues.forEach((issue) => {
         const card = document.createElement("div")
         let priority = issue.priority ? issue.priority.trim() : '';
@@ -119,10 +119,17 @@ function displayAllIssues(issues) {
         `;
         allIssuesSection.appendChild(card);
 
-     
+        if (issue.status === "open") {
+            const openCard = card.cloneNode(true);
+            openIssuesSection.appendChild(openCard);
+        } 
+
+
     });
     allCountIssues.innerText = issues.length;
-   
+    const openIssues = issues.filter(issue => issue.status === "open");
+    openCountIssues.innerText = openIssues.length;
+
 }
 
 
