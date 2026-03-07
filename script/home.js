@@ -123,11 +123,71 @@ function displayAllIssues(issues) {
         loadingSection.classList.add("hidden")
 
         if (issue.status === "open") {
-            const openCard = card.cloneNode(true);
-            openIssuesSection.appendChild(openCard);
+            loadingSection.classList.remove("hidden");
+            const card = document.createElement("div")
+           card.innerHTML = `
+             <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        ${cardImg}
+                    </div>
+                    <div
+                        class="badge badge-soft font-medium ${priorityClass}">
+                        ${issue.priority}</div>
+                </div>
+                <h3 class="text-lg font-bold">${issue.title}</h3>
+                <p class="opacity-50">${issue.description}</p>
+
+                 <div class="flex gap-2">
+                        ${issue.labels.map(label => `
+                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
+
+                            `
+        ).join('')}     
+               </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50">${issue.author}</p>
+                <p class="opacity-50">${issue.updatedAt}</p>
+
+
+
+            </div>
+        `;
+            openIssuesSection.appendChild(card);
+            loadingSection.classList.add("hidden");
         } else {
-            const openCard = card.cloneNode(true);
-            closedIssuesSection.appendChild(openCard);
+            loadingSection.classList.remove("hidden");
+            const card = document.createElement("div")
+           card.innerHTML = `
+             <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        ${cardImg}
+                    </div>
+                    <div
+                        class="badge badge-soft font-medium ${priorityClass}">
+                        ${issue.priority}</div>
+                </div>
+                <h3 class="text-lg font-bold">${issue.title}</h3>
+                <p class="opacity-50">${issue.description}</p>
+
+                 <div class="flex gap-2">
+                        ${issue.labels.map(label => `
+                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
+
+                            `
+        ).join('')}     
+               </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50">${issue.author}</p>
+                <p class="opacity-50">${issue.updatedAt}</p>
+
+
+
+            </div>
+        `;
+            closedIssuesSection.appendChild(card);
+            loadingSection.classList.add("hidden");
         }
 
 
@@ -144,14 +204,17 @@ allIssues()
 document.getElementById("btn-search").addEventListener('click', ()=>{
     const input =document.getElementById("input-search");
     const searchValue =input.value.trim().toLowerCase();
-
-
+      if (!searchValue) {
+        allIssues();
+        return;
+    }
+    
   fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
   .then(res=> res.json())
   .then(data=>{
     const allCards = data.data;
     const filtarCards =allCards.filter(word=>word.description.toLowerCase)
-    console.log(allCards)
+    
      displayAllIssues(filtarCards)
   })
 })
