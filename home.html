@@ -54,7 +54,7 @@
         <section class="mt-10 shadow-sm bg-white">
             <div class="flex gap-5 px-6 py-4">
                 <button onclick="toggoleStyle('all-issues-btn')" id="all-issues-btn"
-                    class="bg-blue-500 text-white  py-3 px-4 md:px-8 rounded-sm border border-gray-400 cursor-pointer">All</button>
+                    class="bg-blue-700 text-white  py-3 px-4 md:px-8 rounded-sm border border-gray-400 cursor-pointer">All</button>
                 <button onclick="toggoleStyle('open-issues-btn')" id="open-issues-btn"
                     class="bg-white  py-3 px-4 md:px-8 rounded-sm border border-gray-400 cursor-pointer">
                     Open</button>
@@ -71,7 +71,8 @@
                         <img src="./assets/Aperture.png" alt="">
                     </div>
                     <div>
-                        <h1 class="text-lg font-bold">50 Issues</h1>
+                        <h1 class="text-lg font-bold"><span id="allIssues">0</span> <span id="openIssues"  class="hidden">0</span>
+                            <span id="closedIssues" class="hidden">0</span> Issues</h1>
                         <p class="opacity-45">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -89,7 +90,7 @@
         </section>
 
         <!-- all-issues-section -->
-        <section id="all-issues-section" class="shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        <section id="all-issues-section" class="shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 border-green-500">
                 <div class="flex justify-between mb-3">
                     <div>
@@ -144,12 +145,12 @@
         </section>
 
         <!-- open issues section -->
-         <section id="open-issues-section" class="hidden">
+         <section id="open-issues-section" class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
          </section>
 
          <!-- closed issues btn -->
-         <section id="closed-issues-section" class="hidden">
+         <section id="closed-issues-section" class="hidden shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
          </section>
 
