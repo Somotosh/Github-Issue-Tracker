@@ -14,9 +14,11 @@
     <!-- tailwing & daisyui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+
     <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         * {
@@ -25,7 +27,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-[#F1F2F4]">
 
     <header>
         <div class="navbar bg-base-100 shadow-sm px-1 sm:px-10">
@@ -38,7 +40,7 @@
                 </div>
             </div>
             <div class="flex gap-1">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <input type="text" placeholder=" Search" class="input input-bordered w-24 md:w-auto" />
                 <div class="dropdown dropdown-end">
                     <button class="btn btn-primary "><i class="fa-solid fa-plus"></i>New Issue</button>
 
@@ -46,6 +48,101 @@
             </div>
         </div>
     </header>
+
+    <main class="w-11/12  mx-auto">
+        <!-- button section -->
+        <section class="mt-10 shadow-sm bg-white">
+            <div class="flex gap-5 px-6 py-4">
+                <button id="all-issues-btn"
+                    class="bg-blue-500 text-white  py-3 px-4 md:px-8 rounded-sm border border-gray-400 cursor-pointer">All</button>
+                <button id="open-issues-btn"
+                    class="bg-white  py-3 px-4 md:px-8 rounded-sm border border-gray-400 cursor-pointer">
+                    Open</button>
+                <button id="closed-issues-btn"
+                    class="border border-gray-400  py-3 px-8 rounded-sm  cursor-pointer">Closed</button>
+            </div>
+        </section>
+
+        <!-- job count section -->
+        <section class="bg-white mt-10 shadow-sm rounded-sm">
+            <div class="flex justify-between px-3 sm:px-6 py-3 sm:py-6">
+                <div class="flex items-center gap-1 sm:gap-2">
+                    <div class="flex rounded-full p-2 bg-slate-200">
+                        <img src="./assets/Aperture.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold">50 Issues</h1>
+                        <p class="opacity-45">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="flex items-center gap-1 sm:gap-2">
+                        <div class="p-2 rounded-full bg-green-500"></div>
+                        <p class="font-bold">Open</p>
+                    </div>
+                    <div class="flex items-center gap-1 sm:gap-2">
+                        <div class="p-2 rounded-full bg-purple-500"></div>
+                        <p class="font-bold">Closed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- all-issues-section -->
+        <section id="all-issues-section" class="shadow-sm gap-2 px-4 pt-6 pb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+            <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 border-green-500">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        <img src="./assets/Open-Status.png" alt="">
+                    </div>
+                    <div
+                        class="badge badge-outline rounded-full border-none p-3 badge-success text-[#EF4444] bg-[#FEECEC]">
+                        Success</div>
+                </div>
+                <h3 class="text-lg font-bold">Fix navigation menu on mobile devices</h3>
+                <p class="opacity-50">The navigation menu doesn't collapse properly on mobile devices...</p>
+
+                <div>
+                    <div class="badge badge-outline badge-warning bg-[#FDE68A] border-none"><i class="fa-solid fa-bug"></i>Bug</div>
+                    <div class="badge badge-outline badge-warning bg-[#FDE68A] border-none"><i class="fa-solid fa-life-ring"></i>help wanted
+                    </div>
+                </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50">#1 by john_doe</p>
+                <p class="opacity-50">1/15/2024</p>
+
+
+
+            </div>
+            <div class="card shadow-md space-y-2 bg-white p-3 border-t-4 border-purple-500">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        <img src="./assets/Closed- Status .png" alt="">
+                    </div>
+                    <div
+                        class="badge badge-outline rounded-full border-none p-3 badge-success text-[#9CA3AF] bg-[#EEEFF2]">
+                        Low</div>
+                </div>
+                <h3 class="text-lg font-bold">Fix navigation menu on mobile devices</h3>
+                <p class="opacity-50">The navigation menu doesn't collapse properly on mobile devices...</p>
+
+                <div>
+                    <div 
+                    class="badge badge-outline badge-warning text-green-700 font-bold bg-green-300 rounded-full border-none">
+                    <i class="fa-regular fa-star"></i>Enhancement</div>
+                    
+                </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50">#1 by john_doe</p>
+                <p class="opacity-50">1/15/2024</p>
+
+
+
+            </div>
+
+
+        </section>
+    </main>
 
 </body>
 
