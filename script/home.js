@@ -112,7 +112,7 @@ function displayAllIssues(issues) {
         ).join('')}     
                </div>
                 <hr class="border-gray-300">
-                <p class="opacity-50">${issue.author}</p>
+                <p class="opacity-50"> ${issue.id} by ${issue.author}</p>
                 <p class="opacity-50">${issue.updatedAt}</p>
 
 
@@ -146,7 +146,7 @@ function displayAllIssues(issues) {
             ).join('')}     
                </div>
                 <hr class="border-gray-300">
-                <p class="opacity-50">${issue.author}</p>
+                <p class="opacity-50">${issue.id} by ${issue.author}</p>
                 <p class="opacity-50">${issue.updatedAt}</p>
 
 
@@ -179,7 +179,7 @@ function displayAllIssues(issues) {
             ).join('')}     
                </div>
                 <hr class="border-gray-300">
-                <p class="opacity-50">${issue.author}</p>
+                <p class="opacity-50">${issue.id} by ${issue.author}</p>
                 <p class="opacity-50">${issue.updatedAt}</p>
 
 
@@ -237,7 +237,7 @@ function displayModal(data) {
                 <div class="card-body grid grid-cols-2">
                     <div>
                         <p>Assignee: </p>
-                        <p class="font-semibold">Fahim Ahmed</p>
+                        <p class="font-semibold"> ${data.author}</p>
                     </div>
                     <div>
                         <p>Priority: </p>
@@ -250,7 +250,7 @@ function displayModal(data) {
     document.getElementById("modal-section").showModal();
 }
 allIssues()
-modal()
+
 
 document.getElementById("btn-search").addEventListener('click', () => {
     const input = document.getElementById("input-search");
