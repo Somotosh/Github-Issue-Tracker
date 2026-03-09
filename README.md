@@ -1,5 +1,4 @@
 
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
     - 1️⃣ What is the difference between var, let, and const?
     var = The same variable can be declared again and the value can be changed.
     let = Cannot be declared again, but the value can be changed.
