@@ -120,83 +120,94 @@ function displayAllIssues(issues) {
             </div>
         `;
         allIssuesSection.appendChild(card);
-        loadingSection.classList.add("hidden")
-
-        if (issue.status === "open") {
-            loadingSection.classList.remove("hidden");
-            const card = document.createElement("div")
-            card.innerHTML = `
-             <div onclick ="modal(${issue.id})" class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
-                <div class="flex justify-between mb-3">
-                    <div>
-                        ${cardImg}
-                    </div>
-                    <div
-                        class="badge badge-soft font-medium ${priorityClass}">
-                        ${issue.priority}</div>
-                </div>
-                <h3 class="text-lg font-bold">${issue.title}</h3>
-                <p class="opacity-50">${issue.description}</p>
-
-                 <div class="flex gap-2">
-                        ${issue.labels.map(label => `
-                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
-
-                            `
-            ).join('')}     
-               </div>
-                <hr class="border-gray-300">
-                <p class="opacity-50">${issue.id} by ${issue.author}</p>
-                <p class="opacity-50">${issue.updatedAt}</p>
-
-
-
-            </div>
-        `;
-            openIssuesSection.appendChild(card);
-            loadingSection.classList.add("hidden");
-        } else {
-            loadingSection.classList.remove("hidden");
-            const card = document.createElement("div")
-            card.innerHTML = `
-             <div onclick ="modal(${issue.id})" class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
-                <div class="flex justify-between mb-3">
-                    <div>
-                        ${cardImg}
-                    </div>
-                    <div
-                        class="badge badge-soft font-medium ${priorityClass}">
-                        ${issue.priority}</div>
-                </div>
-                <h3 class="text-lg font-bold">${issue.title}</h3>
-                <p class="opacity-50">${issue.description}</p>
-
-                 <div class="flex gap-2">
-                        ${issue.labels.map(label => `
-                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
-
-                            `
-            ).join('')}     
-               </div>
-                <hr class="border-gray-300">
-                <p class="opacity-50">${issue.id} by ${issue.author}</p>
-                <p class="opacity-50">${issue.updatedAt}</p>
-
-
-
-            </div>
-        `;
-            closedIssuesSection.appendChild(card);
-            loadingSection.classList.add("hidden");
-        }
-
-
+        
     });
     allCountIssues.innerText = issues.length;
+    loadingSection.classList.add("hidden")
+    
     const openIssues = issues.filter(issue => issue.status === "open");
+    loadingSection.classList.remove("hidden")
+    openIssues.forEach((issue) => {
+        const card = document.createElement("div")
+        const priority = issue.priority ? issue.priority.trim() : '';
+        const borderClass = issue.status === 'open' ? 'border-green-500' : 'border-purple-500';
+        const priorityClass = priority === 'high' ? 'badge-secondary' : priority === 'medium' ? 'badge-primary' : 'badge-neutral';
+        const cardImg = issue.status === 'open' ? '<img src="./assets/Open-Status.png" alt="Open Status">' :
+            '<img src="./assets/Closed- Status .png" alt="">';
+        card.innerHTML = `
+             <div onclick ="modal(${issue.id})" class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        ${cardImg}
+                    </div>
+                    <div
+                        class="badge badge-soft font-medium ${priorityClass}">
+                        ${issue.priority}</div>
+                </div>
+                <h3 class="text-lg font-bold">${issue.title}</h3>
+                <p class="opacity-50">${issue.description}</p>
+
+                 <div class="flex gap-2">
+                        ${issue.labels.map(label => `
+                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
+
+                            `
+        ).join('')}     
+               </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50"> ${issue.id} by ${issue.author}</p>
+                <p class="opacity-50">${issue.updatedAt}</p>
+
+
+
+            </div>
+        `;
+        openIssuesSection.appendChild(card);
+    });
+    loadingSection.classList.add("hidden")
     openCountIssues.innerText = openIssues.length;
 
     const closedIssues = issues.filter(issue => issue.status === "closed");
+    loadingSection.classList.remove("hidden")
+    closedIssues.forEach((issue) => {
+        const card = document.createElement("div")
+        const priority = issue.priority ? issue.priority.trim() : '';
+        const borderClass = issue.status === 'open' ? 'border-green-500' : 'border-purple-500';
+        const priorityClass = priority === 'high' ? 'badge-secondary' : priority === 'medium' ? 'badge-primary' : 'badge-neutral';
+        const cardImg = issue.status === 'open' ? '<img src="./assets/Open-Status.png" alt="Open Status">' :
+            '<img src="./assets/Closed- Status .png" alt="">';
+        card.innerHTML = `
+             <div onclick ="modal(${issue.id})" class="card shadow-md space-y-2 bg-white p-3 border-t-4 w-full h-full ${borderClass}">
+                <div class="flex justify-between mb-3">
+                    <div>
+                        ${cardImg}
+                    </div>
+                    <div
+                        class="badge badge-soft font-medium ${priorityClass}">
+                        ${issue.priority}</div>
+                </div>
+                <h3 class="text-lg font-bold">${issue.title}</h3>
+                <p class="opacity-50">${issue.description}</p>
+
+                 <div class="flex gap-2">
+                        ${issue.labels.map(label => `
+                            <div class="badge badge-soft ${label === 'bug' ? 'badge-warning' : label === 'help wanted' ? 'badge-accent' : label === 'enhancement' ? 'badge-success' : label === 'documentation' ? 'badge-secondary' : 'badge-accent'}">${label}</div>
+
+                            `
+        ).join('')}     
+               </div>
+                <hr class="border-gray-300">
+                <p class="opacity-50"> ${issue.id} by ${issue.author}</p>
+                <p class="opacity-50">${issue.updatedAt}</p>
+
+
+
+            </div>
+        `;
+        closedIssuesSection.appendChild(card);
+        
+    });
+    loadingSection.classList.add("hidden")
     closedCountIssues.innerText = closedIssues.length;
 }
 
@@ -264,8 +275,10 @@ document.getElementById("btn-search").addEventListener('click', () => {
         .then(res => res.json())
         .then(data => {
             const allCards = data.data;
-            const filtarCards = allCards.filter(word => word.description.toLowerCase)
+            const filtarCards = allCards.filter(word => word.description.toLowerCase())
 
             displayAllIssues(filtarCards)
         })
 })
+
+
